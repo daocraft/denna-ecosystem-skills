@@ -19,6 +19,13 @@ strip_frontmatter() {
   fi
 }
 
+# Portable in-place sed (macOS and Linux compatible)
+sedi() {
+  local expr="$1" file="$2"
+  local tmp="${file}.tmp"
+  sed "$expr" "$file" > "$tmp" && mv "$tmp" "$file"
+}
+
 # Append source file to bundle with --- separator, stripping frontmatter
 append_file() {
   local dest="$1"
@@ -78,7 +85,7 @@ append_file "$OUT" "$SKILLS/denna-params-auditor/references/audit-checklist.md"
 append_file "$OUT" "$SKILLS/denna-params-auditor/references/findings-schema.md"
 
 # Rewrite cross-bundle references to point to bundled filenames
-sed -i '' 's|\.\./denna-spec-reference/references/\*\.md|denna-spec-reference.md|g' "$OUT"
+sedi 's|\.\./denna-spec-reference/references/\*\.md|denna-spec-reference.md|g' "$OUT"
 
 ###############################################################################
 # 3. bundled/denna-params-author.md
@@ -100,7 +107,7 @@ append_file "$OUT" "$SKILLS/denna-params-author/SKILL.md"
 append_file "$OUT" "$SKILLS/denna-params-author/references/examples.md"
 
 # Rewrite cross-bundle references to point to bundled filenames
-sed -i '' 's|\.\./denna-spec-reference/references/\*\.md|denna-spec-reference.md|g' "$OUT"
+sedi 's|\.\./denna-spec-reference/references/\*\.md|denna-spec-reference.md|g' "$OUT"
 
 ###############################################################################
 # Summary
