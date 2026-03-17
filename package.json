@@ -1,0 +1,11 @@
+{
+  "name": "@daocraft/denna-ecosystem-skills",
+  "version": "1.0.0",
+  "description": "Claude Code skills for Denna Specification parameter files",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daocraft/denna-ecosystem-skills.git"
+  },
+  "keywords": ["denna", "sky", "defi", "claude-code", "skills"]
+}

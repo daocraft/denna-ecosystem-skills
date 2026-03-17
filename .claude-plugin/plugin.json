@@ -1,0 +1,12 @@
+{
+  "name": "denna-ecosystem-skills",
+  "version": "1.0.0",
+  "description": "Skills for working with Denna Specification parameter files — authoring, auditing, and understanding star configurations",
+  "author": {
+    "name": "Daocraft",
+    "url": "https://github.com/daocraft"
+  },
+  "repository": "https://github.com/daocraft/denna-ecosystem-skills",
+  "license": "CC-BY-4.0",
+  "keywords": ["denna", "sky", "defi", "parameters", "star-config"]
+}
