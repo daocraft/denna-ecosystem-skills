@@ -1,6 +1,8 @@
 # Denna Ecosystem Skills
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin for working with **Denna Specification** parameter files. These skills give Claude the domain knowledge needed to interpret, author, and audit `.denna-spec.json` configurations used in [sky-parameters](https://github.com/daocraft/sky-parameters) repositories.
+An AI agent skills package for working with **Denna Specification** parameter files. These skills give your agent the domain knowledge needed to interpret, author, and audit `.denna-spec.json` configurations used in [sky-parameters](https://github.com/daocraft/sky-parameters) repositories.
+
+Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [GitHub Copilot](https://github.com/features/copilot), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and other agents that support the [Skills](https://github.com/anthropics/skills) format.
 
 ## Available Skills
 
@@ -38,22 +40,22 @@ Verification skill for auditing star configurations against the Denna Specificat
 
 ## Installation
 
-### npx skills
+### Skills CLI (recommended)
+
+Works across Claude Code, GitHub Copilot, Gemini CLI, and other supported agents:
 
 ```bash
 npx skills add daocraft/denna-ecosystem-skills
 ```
 
-### Marketplace
+### Claude Code plugin
 
 ```bash
+# Marketplace
 /plugin marketplace add daocraft/denna-ecosystem-skills
 /plugin install denna-ecosystem-skills@daocraft-denna-ecosystem-skills
-```
 
-### Local development
-
-```bash
+# Local development
 claude --plugin-dir ./denna-ecosystem-skills
 ```
 
@@ -62,6 +64,10 @@ claude --plugin-dir ./denna-ecosystem-skills
 ```bash
 npm install @daocraft/denna-ecosystem-skills
 ```
+
+### Claude.ai (web)
+
+Upload the reference files from `skills/denna-spec-reference/references/` as project knowledge. This gives Claude the interpretation rules without requiring a CLI agent.
 
 ## Project Structure
 
