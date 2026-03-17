@@ -16,6 +16,20 @@ Upload the bundled files from `bundled/` to your Claude.ai Project as knowledge 
 
 The reference file (`denna-spec-reference.md`) is **always required** — it provides the interpretation rules that the auditor and author skills depend on.
 
+### Providing sky-parameters data
+
+The canonical data lives at **https://github.com/daocraft/sky-parameters**.
+
+Claude.ai cannot fetch GitHub URLs directly. To give Claude access to the data:
+
+1. **Paste file contents** — copy the relevant `.denna-spec.json` files into the conversation
+2. **Use raw URLs** — Claude.ai can sometimes fetch `raw.githubusercontent.com` URLs:
+   ```
+   https://raw.githubusercontent.com/daocraft/sky-parameters/main/<star>/protocol-config.denna-spec.json
+   https://raw.githubusercontent.com/daocraft/sky-parameters/main/<star>/pnl-config.denna-spec.json
+   ```
+3. **Upload as attachments** — download the JSON files and attach them to the conversation
+
 ### Regenerating bundles
 
 If the source files change, regenerate the bundles:

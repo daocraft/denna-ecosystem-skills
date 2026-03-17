@@ -40,6 +40,17 @@ Always include this file in your Claude.ai Project when working with sky-paramet
 
 This document covers: protocol-config structure, PnL configuration, value types,
 cross-file relationships, and common gotchas.
+
+## Source of Truth
+
+The canonical sky-parameters data lives at:
+**https://github.com/daocraft/sky-parameters**
+
+> **Claude.ai users:** GitHub URLs cannot be fetched directly from Claude.ai.
+> To work with sky-parameters data, ask the user to paste the relevant file contents
+> (e.g., `protocol-config.denna-spec.json`, `pnl-config.denna-spec.json`) into the
+> conversation, or use the raw URL format:
+> `https://raw.githubusercontent.com/daocraft/sky-parameters/main/<path>`
 EOF
 
 REF="$SKILLS/denna-spec-reference/references"
@@ -57,6 +68,9 @@ cat > "$OUT" << 'EOF'
 
 Skill and supporting references for auditing star configuration in sky-parameters repos.
 Upload this file (along with `denna-spec-reference.md`) to your Claude.ai Project.
+
+**Data repo:** https://github.com/daocraft/sky-parameters
+— ask the user to paste file contents or use raw.githubusercontent.com URLs.
 EOF
 
 append_file "$OUT" "$SKILLS/denna-params-auditor/SKILL.md"
@@ -77,6 +91,9 @@ cat > "$OUT" << 'EOF'
 Skill and supporting references for adding, modifying, or removing star configuration
 in sky-parameters repos. Upload this file (along with `denna-spec-reference.md`) to
 your Claude.ai Project.
+
+**Data repo:** https://github.com/daocraft/sky-parameters
+— ask the user to paste file contents or use raw.githubusercontent.com URLs.
 EOF
 
 append_file "$OUT" "$SKILLS/denna-params-author/SKILL.md"
