@@ -1,0 +1,25 @@
+name: Check bundled files are up to date
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'scripts/bundle.sh'
+
+jobs:
+  check-bundles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate bundles
+        run: bash scripts/bundle.sh
+
+      - name: Check for stale bundles
+        run: |
+          if ! git diff --quiet bundled/; then
+            echo "::error::Bundled files are out of date. Run 'bash scripts/bundle.sh' and commit the results."
+            git diff --stat bundled/
+            exit 1
+          fi
+          echo "Bundles are up to date."

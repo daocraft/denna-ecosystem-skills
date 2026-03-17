@@ -67,7 +67,13 @@ npm install @daocraft/denna-ecosystem-skills
 
 ### Claude.ai (web)
 
-Upload the reference files from `skills/denna-spec-reference/references/` as project knowledge. This gives Claude the interpretation rules without requiring a CLI agent.
+Upload the pre-built bundles from `bundled/` as Project knowledge files. See [SETUP.md](./SETUP.md) for which files to include per task. Regenerate bundles after editing source files:
+
+```bash
+bash scripts/bundle.sh
+```
+
+A [CI check](.github/workflows/check-bundles.yml) will fail PRs that have stale bundles.
 
 ## Project Structure
 
@@ -94,7 +100,14 @@ denna-ecosystem-skills/
 │       └── references/
 │           ├── audit-checklist.md
 │           └── findings-schema.md
+├── bundled/                        ← pre-built bundles for Claude.ai web
+│   ├── denna-spec-reference.md
+│   ├── denna-params-auditor.md
+│   └── denna-params-author.md
+├── scripts/
+│   └── bundle.sh
 ├── package.json
+├── SETUP.md
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE
@@ -114,7 +127,8 @@ Contributions are welcome. Please open an issue in the [issue tracker](https://g
 When adding or modifying a skill:
 1. Follow the existing `SKILL.md` frontmatter and section conventions
 2. Place supporting data in `references/` within the skill directory
-3. Update this README if the skill table or project structure changes
+3. Run `bash scripts/bundle.sh` to regenerate the Claude.ai bundles
+4. Update this README if the skill table or project structure changes
 
 ## License
 
