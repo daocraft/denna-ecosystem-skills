@@ -98,8 +98,8 @@ denna-ecosystem-skills/
 
 These gists walk through real-world usage of the skills:
 
-- [Adding a Morpho vault to Grove on Base](https://gist.github.com/daocraft/placeholder-morpho-vault-grove-base) -- uses `denna-params-author` to produce a complete PR changeset from a contract address and chain name.
-- [Onboarding a new Star from scratch](https://gist.github.com/daocraft/placeholder-onboarding-new-star) -- uses all three skills end-to-end: reference for context, author for initial config, auditor to verify before merge.
+- [Adding a Morpho vault to Grove on Base](https://gist.github.com/grace-tau37/d05c48522892da11ac0a8199aa512a0a#file-gist-morpho-example-md) -- uses `denna-params-author` to produce a complete PR changeset from a contract address and chain name.
+- [Onboarding a new Star from scratch](https://gist.github.com/grace-tau37/d05c48522892da11ac0a8199aa512a0a#file-gist-new-star-example-md) -- uses all three skills end-to-end: reference for context, author for initial config, auditor to verify before merge.
 
 ## Contributing
 
