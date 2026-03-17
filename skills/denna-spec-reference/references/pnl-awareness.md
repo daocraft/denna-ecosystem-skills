@@ -73,7 +73,7 @@ Some tags have direct classification counterparts. When a tag is set on a positi
 - `idle_lending` — idle lending reimbursement; handled by the `idleStablecoins` module
 - `ssr_address` — SSR address identification; no classification counterpart
 
-Note: `usdsSsr` classification has a tag counterpart via `ssr_funded`, but `usdsSsr` itself is a distinct classification for sUSDS price growth treatment.
+`usdsSsr` has no direct tag counterpart. It serves a distinct purpose (sUSDS price growth as custom base rate) from `ssrFunded` (SSR cost deduction), even though both relate to SSR.
 
 ## 5. Calculation Modules
 
@@ -95,9 +95,10 @@ Calculation modules are defined in `parameters.calculationModules` as an array o
 | `psm3Susds` | sUSDS in PSM3 on L2 chains |
 | `skyDirectExposure` | Step 4: RWA Sky Direct Exposure reimbursement |
 | `borrowRateSubsidy` | Borrow rate subsidy calculation |
-| `lpPoolHandling` | LP pool special handling rules |
 
 Modules are enabled or disabled per star. A disabled module means that calculation step is skipped entirely.
+
+> **Note:** `lpPoolHandling` is NOT a calculation module. It is a separate configuration section at `parameters.lpPoolHandling` (see section 12).
 
 ## 6. Subsidy Programs
 
@@ -206,3 +207,65 @@ Each entry has:
 | `source` | No | string | Source code reference where the bug exists |
 
 Known issues are documentation only — they do not affect schema validation but signal to auditors and operators where calculations may be incorrect.
+
+## 12. LP Pool Handling
+
+The `parameters.lpPoolHandling` array defines special handling rules for LP pools across protocols. This is a standalone configuration section, not a calculation module.
+
+Each entry has:
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `lpAddress` | **Yes** | address | LP pool contract address |
+| `name` | **Yes** | string | Pool name |
+| `protocol` | No | string | LP protocol (e.g., `"curve"`, `"uniswap-v3"`, `"balancer"`) |
+| `activeFrom` | No | date | Date from which the pool is active (YYYY-MM-DD) |
+| `treatment` | No | string | How the pool is treated in PnL calculations |
+
+## 13. Direct Exposures
+
+The `parameters.directExposures` array defines direct on-chain exposure positions within stability modules (e.g., USDC within PSM3 treated as direct exposure).
+
+Each entry has:
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `chain` | **Yes** | string | Chain identifier (e.g., `"base"`, `"arbitrum"`) |
+| `moduleAddress` | **Yes** | address | The stability module contract address |
+| `assetAddress` | **Yes** | address | The asset contract address within the module |
+| `notes` | No | string | Additional context about the exposure |
+
+## 14. One-Time Adjustments
+
+The `parameters.oneTimeAdjustments` array defines one-time revenue adjustments applied in specific months.
+
+Each entry has:
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `month` | **Yes** | string | Year-month of the adjustment (YYYY-MM format) |
+| `address` | **Yes** | address | Address the adjustment applies to |
+| `amount` | **Yes** | amount | Adjustment amount: `{ "value": number, "currency": "USD" }` |
+| `description` | **Yes** | string | Explanation of the adjustment |
+
+## 15. Prepayments
+
+The `parameters.prepayments` array defines prepayment amounts for specific assets.
+
+Each entry has:
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `asset` | **Yes** | string | Asset symbol (e.g., `"PYUSD"`) |
+| `address` | **Yes** | address | Address associated with the prepayment |
+| `amount` | **Yes** | amount | Prepayment amount: `{ "value": number, "currency": "USD" }` |
+
+## 16. PSM3 Chains
+
+The `parameters.psm3Chains` array lists chain ID strings where PSM3 is processed for debt PnL. This may include chains that do not appear in the entity's own chain list — those chains are PnL-relevant through PSM3 processing only.
+
+Each item is a chain identifier string (e.g., `"base"`, `"arbitrum"`).
+
+## 17. Accounting Notes
+
+The `parameters.accountingNotes` field is a string containing human-readable accounting methodology notes. It typically documents settlement formulas, asset treatment details, and any special accounting considerations for the entity.
