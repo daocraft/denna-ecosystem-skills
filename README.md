@@ -38,6 +38,12 @@ Verification skill for auditing star configurations against the Denna Specificat
 
 ## Installation
 
+### npx skills
+
+```bash
+npx skills add daocraft/denna-ecosystem-skills
+```
+
 ### Marketplace
 
 ```bash
