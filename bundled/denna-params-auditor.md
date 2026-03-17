@@ -3,6 +3,9 @@
 Skill and supporting references for auditing star configuration in sky-parameters repos.
 Upload this file (along with `denna-spec-reference.md`) to your Claude.ai Project.
 
+**Data repo:** https://github.com/daocraft/sky-parameters
+— ask the user to paste file contents or use raw.githubusercontent.com URLs.
+
 ---
 
 
