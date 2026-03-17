@@ -34,6 +34,19 @@ Two schema repos exist:
 
 **Rule:** Always validate against the `$schema` URL declared in the data file.
 
+### Ecosystem Repos
+
+These are the official repos in the denna/Sky ecosystem. **Always fetch current content** — never assume what's inside.
+
+| Repo | GitHub | Purpose |
+|------|--------|---------|
+| `sky-parameters` | `github.com/daocraft/sky-parameters` | Star config data files (one directory per star) |
+| `denna-spec` | `github.com/daocraft/denna-spec` | Canonical spec, schemas hosted at `spec.denna.io` |
+| `denna-spec-schemas` | `github.com/daocraft/denna-spec-schemas` | Extension schemas hosted at `schemas.denna.io` |
+| `amatsu-data-hub` | `github.com/daocraft/amatsu-data-hub` | Data pipeline and services that consume denna-spec files |
+
+**Discovery order:** Check for a local checkout in the workspace first (sibling directories, monorepo). Fall back to GitHub API if not found locally.
+
 ### Sky-Parameters File Structure
 
 A typical sky-parameters repo:
