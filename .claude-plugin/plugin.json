@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Skills for working with Denna Specification parameter files — authoring, auditing, and understanding star configurations",
   "author": {
-    "name": "Daocraft",
-    "url": "https://github.com/daocraft"
+    "name": "Grace",
+    "email": "grace@amatsu.io"
   },
   "repository": "https://github.com/daocraft/denna-ecosystem-skills",
   "license": "CC-BY-4.0",

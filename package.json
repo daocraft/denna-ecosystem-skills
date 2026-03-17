@@ -2,6 +2,7 @@
   "name": "@daocraft/denna-ecosystem-skills",
   "version": "1.0.0",
   "description": "Claude Code skills for Denna Specification parameter files",
+  "author": "Grace <grace@amatsu.io>",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
