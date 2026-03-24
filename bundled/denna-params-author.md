@@ -102,6 +102,7 @@ Apply changes following these rules:
 - **Populate `extra`** for protocol-specific metadata (e.g., `centrifugeTokenId` for Centrifuge positions)
 - **Update markdown docs** in `markdown/[star]/` to reflect the changes
 - **Match existing file conventions** — indentation, field ordering, trailing newlines
+- **Update repository manifest** — Add the new file's relative path to `denna-repo.denna-spec.json`'s `repository.entries` array. Maintain alphabetical order within the array.
 
 ### Step 5 — Produce Change Summary
 

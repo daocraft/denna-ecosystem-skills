@@ -91,6 +91,7 @@ Checks organized by category. Run sequentially (v1 -- no subagent parallelism).
 - Chains in protocol-config match chains referenced in pnl-config stability modules (accounting for intentional PnL-only chains documented with `notes`)
 - Shared stablecoin/sUSDS address registries cover all chains the star operates on
 - Markdown docs match JSON data (addresses, chain lists, position counts)
+- **Manifest consistency** — verify `denna-repo.denna-spec.json` entries match actual files on disk, `metadata.version` matches `package.json`
 
 **PR-Specific Checks (scope: `pr` only):**
 - New positions have all required fields
@@ -280,6 +281,14 @@ Complete checklist for the denna-params-auditor skill. Each check includes its s
 - [ ] **Markdown docs match JSON data** (nit)
   - Pass: Addresses, chain lists, and position counts in markdown docs are consistent with the JSON config files
   - Fail: Stale or mismatched documentation
+
+### Repository Manifest
+
+- [ ] `denna-repo.denna-spec.json` exists at repo root
+- [ ] `metadata.version` matches `package.json` version
+- [ ] `repository.entries` lists every `*.denna-spec.json` file in the repo (excluding the manifest itself)
+- [ ] No entries point to files that don't exist
+- [ ] No `*.denna-spec.json` files exist that aren't listed in entries
 
 ## PR-Specific (scope: pr)
 
