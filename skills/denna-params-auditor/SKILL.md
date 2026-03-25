@@ -86,6 +86,7 @@ Checks organized by category. Run sequentially (v1 -- no subagent parallelism).
 - Chains in protocol-config match chains referenced in pnl-config stability modules (accounting for intentional PnL-only chains documented with `notes`)
 - Shared stablecoin/sUSDS address registries cover all chains the star operates on
 - Markdown docs match JSON data (addresses, chain lists, position counts)
+- **Manifest consistency** — verify `denna-repo.denna-spec.json` entries match actual files on disk, `metadata.version` matches `package.json`
 
 **PR-Specific Checks (scope: `pr` only):**
 - New positions have all required fields

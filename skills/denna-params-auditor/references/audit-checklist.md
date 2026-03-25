@@ -100,6 +100,14 @@ Complete checklist for the denna-params-auditor skill. Each check includes its s
   - Pass: Addresses, chain lists, and position counts in markdown docs are consistent with the JSON config files
   - Fail: Stale or mismatched documentation
 
+### Repository Manifest
+
+- [ ] `denna-repo.denna-spec.json` exists at repo root
+- [ ] `metadata.version` matches `package.json` version
+- [ ] `repository.entries` lists every `*.denna-spec.json` file in the repo (excluding the manifest itself)
+- [ ] No entries point to files that don't exist
+- [ ] No `*.denna-spec.json` files exist that aren't listed in entries
+
 ## PR-Specific (scope: pr)
 
 - [ ] **New positions have all required fields** (blocker)
